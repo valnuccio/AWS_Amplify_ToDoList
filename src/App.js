@@ -67,8 +67,10 @@ const ListItem = ({id, name, description, imageUrl}) =>{
         description: toDoDescription,
         filePath: key
       }
-
+      //sends the mutation to the API and awaits response before proceeding
       await API.graphql(graphqlOperation(createTodo, {input:createImgObj}) )
+
+      //triggers passed down prop that will effect render
       onUpload()
     }
 
