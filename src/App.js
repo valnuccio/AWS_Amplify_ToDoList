@@ -52,6 +52,8 @@ const ListItem = ({id, name, description, imageUrl}) =>{
     
 
     const uploadImage = async () =>{
+      //sends the put to the Storage service and saves the response in a key
+
       let toDo={
          name:toDoName,
          description:toDoDescription 
@@ -60,6 +62,7 @@ const ListItem = ({id, name, description, imageUrl}) =>{
       console.log(toDo)
 
       const {key} = await Storage.put(`${uuid()}.mp3`, jpgData, {contentType:'image/png, image/jpeg'})
+      //creates an input in the right format for being sent to the API
 
       const createImgObj = {
         id:uuid(),
